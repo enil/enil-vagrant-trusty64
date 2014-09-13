@@ -1,0 +1,37 @@
+# system.yml
+#
+# Basic system provisioning.
+
+---
+- hosts: all
+  vars:
+    # directory for dotfile repos
+    dotfiles: .dotfiles
+
+    # git repository for zsh dotfiles
+    zsh_git_url: https://github.com/enil/enil-zsh-dotfiles.git
+
+    # additional packages to install
+    extra_packages: []
+
+  tasks:
+    - apt: name=git
+
+    # set up zsh
+    - apt: name=zsh
+
+    - name: Download zsh dotfiles
+      git: repo={{ zsh_git_url }} dest={{ dotfiles }}/zsh
+
+    - name: Add zsh files to home directory
+      file: src={{ dotfiles }}/zsh/{{ item }} dest={{ item }} state=link force=yes
+      with_items:
+        - .zsh
+        - .zshrc
+
+    - name: Set shell to zsh
+      user: name=vagrant shell=/bin/zsh
+
+    - name: Install packages {{ extra_packages }}
+      apt: name={{ item }}
+      with_items: extra_packages
