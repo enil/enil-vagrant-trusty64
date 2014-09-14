@@ -1,0 +1,26 @@
+# provisioning/roles/system/vars/main.yml
+#
+# Variables for system provisioning.
+
+---
+# directory for dotfile repos
+dotfiles: ".dotfiles"
+
+# git repository for zsh dotfiles
+zsh_git_url: "https://github.com/enil/enil-zsh-dotfiles.git"
+
+# git repository for vim dotfiles
+vim_git_url: "https://github.com/enil/enil-vim-dotfiles.git"
+
+# zsh dotfile directory
+zsh_dotfiles: "{{ dotfiles }}/zsh"
+
+# vim dotfile directory
+vim_dotfiles: "{{ dotfiles }}/vim"
+
+# whether outdated repos should be updated
+update_repos: no
+
+# additional packages to install
+extra_packages: []
+

@@ -12,7 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :public_network, ip: "192.168.1.120"
 
   config.vm.provision :ansible do |ansible|
-    ansible.playbook = "ansible/system.yml"
+    ansible.playbook = "provisioning/playbook.yml"
     ansible.sudo = true
 
     ansible.extra_vars = {

@@ -1,0 +1,8 @@
+# provisioning/playbook.yml
+#
+# Defines the roles of the system.
+---
+- hosts: all
+  roles:
+    - system
+
