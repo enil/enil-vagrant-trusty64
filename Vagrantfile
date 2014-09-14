@@ -19,8 +19,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # git repository for zsh dotfiles
       #zsh_git_url: "https://github.com/enil/enil-zsh-dotfiles.git",
 
+      # git repository for vim dotfiles
+      #vim_git_url: "https://github.com/enil/enil-vim-dotfiles.git",
+
       # additional packages to install
-      extra_packages: %w[tmux vim build-essential]
+      extra_packages: %w[tmux vim build-essential],
+
+      # don't check repos for updates
+      update_repos: false
     }
   end
 end
