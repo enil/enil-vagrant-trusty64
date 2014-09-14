@@ -6,8 +6,11 @@
 # the name of the vagrant user
 vagrant_user: "vagrant"
 
+# the home directory
+vagrant_user_home: "/home/{{vagrant_user}}"
+
 # directory for dotfile repos
-dotfiles: ".dotfiles"
+dotfiles: "{{ vagrant_user_home }}/.dotfiles"
 
 # git repository for zsh dotfiles
 zsh_git_url: "https://github.com/enil/enil-zsh-dotfiles.git"
@@ -20,6 +23,12 @@ zsh_dotfiles: "{{ dotfiles }}/zsh"
 
 # vim dotfile directory
 vim_dotfiles: "{{ dotfiles }}/vim"
+
+# username for git
+git_username: "jsmith"
+
+# email for git
+git_email: "jsmith@example.com"
 
 # whether outdated repos should be updated
 update_repos: no

@@ -17,7 +17,7 @@
   git: repo={{ zsh_git_url }} dest={{ zsh_dotfiles }} update={{ update_repos }}
 
 - name: Add zsh files to home directory
-  file: src={{ zsh_dotfiles }}/{{ item }} dest={{ item }} state=link force=yes
+  file: src={{ zsh_dotfiles }}/{{ item }} dest={{ vagrant_user_home}}/{{ item }} state=link force=yes
   with_items:
     - .zsh
     - .zshrc
@@ -30,10 +30,14 @@
   git: repo={{ vim_git_url }} dest={{ vim_dotfiles }} update={{ update_repos }}
 
 - name: Add vim files to home directory
-  file: src={{ vim_dotfiles }}/{{ item }} dest={{ item }} state=link force=yes
+  file: src={{ vim_dotfiles }}/{{ item }} dest={{ vagrant_user_home }}/{{ item }} state=link force=yes
   with_items:
     - .vim
     - .vimrc
+
+# set up git
+- name: Set up gitconfig
+  template: src=git/gitconfig dest={{ vagrant_user_home }}/.gitconfig mode=0600 backup=yes
 
 # additional packages
 - name: Install packages {{ extra_packages }}

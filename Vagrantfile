@@ -16,6 +16,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.sudo = true
 
     ansible.extra_vars = {
+      # username for git
+      #git_username: "John Smith",
+
+      # email for git
+      #git_email: "jsmith@example.com",
+
       # git repository for zsh dotfiles
       #zsh_git_url: "https://github.com/enil/enil-zsh-dotfiles.git",
 
