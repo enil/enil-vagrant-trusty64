@@ -26,6 +26,7 @@
 
 - name: Set shell to zsh
   user: name={{ vagrant_user }} shell=/bin/zsh
+  sudo: yes
 
 # set up vim
 - name: Download vim dotfiles
