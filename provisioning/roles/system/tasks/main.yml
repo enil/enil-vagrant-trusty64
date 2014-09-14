@@ -23,7 +23,7 @@
     - .zshrc
 
 - name: Set shell to zsh
-  user: name=vagrant shell=/bin/zsh
+  user: name={{ vagrant_user }} shell=/bin/zsh
 
 # set up vim
 - name: Download vim dotfiles
@@ -39,4 +39,7 @@
 - name: Install packages {{ extra_packages }}
   apt: name={{ item }}
   with_items: extra_packages
+
+- name: Set up SSH keys
+  user: name={{ vagrant_user }} generate_ssh_key=yes
 

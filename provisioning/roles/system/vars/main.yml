@@ -3,6 +3,9 @@
 # Variables for system provisioning.
 
 ---
+# the name of the vagrant user
+vagrant_user: "vagrant"
+
 # directory for dotfile repos
 dotfiles: ".dotfiles"
 
