@@ -9,9 +9,11 @@
     - git
     - zsh
     - vim
+  sudo: yes
 
 # set up zsh
 - apt: name=zsh
+  sudo: yes
 
 - name: Download zsh dotfiles
   git: repo={{ zsh_git_url }} dest={{ zsh_dotfiles }} update={{ update_repos }}
@@ -43,6 +45,7 @@
 - name: Install packages {{ extra_packages }}
   apt: name={{ item }}
   with_items: extra_packages
+  sudo: yes
 
 - name: Set up SSH keys
   user: name={{ vagrant_user }} generate_ssh_key=yes
