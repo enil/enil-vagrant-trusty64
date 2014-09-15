@@ -28,7 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       #vim_git_url: "https://github.com/enil/enil-vim-dotfiles.git",
 
       # additional packages to install
-      extra_packages: %w[tmux vim build-essential],
+      extra_packages: %w[tmux vim build-essential gdb tree htop],
 
       # don't check repos for updates
       update_repos: false
