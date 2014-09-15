@@ -30,6 +30,15 @@ git_username: "jsmith"
 # email for git
 git_email: "jsmith@example.com"
 
+# default value for LANG and LC_ALL
+locale: "en_US.UTF-8"
+
+# environment variable LANG
+LANG: "{{ locale }}"
+
+# environment variable LC_ALL
+LC_ALL: "{{ locale }}"
+
 # whether outdated repos should be updated
 update_repos: no
 

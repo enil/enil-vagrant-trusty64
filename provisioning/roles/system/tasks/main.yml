@@ -51,3 +51,7 @@
 - name: Set up SSH keys
   user: name={{ vagrant_user }} generate_ssh_key=yes
 
+- name: Set up locale
+  template: src=misc/locale dest=/etc/default/locale
+  sudo: yes
+
