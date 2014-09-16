@@ -10,39 +10,30 @@ vagrant_user: "vagrant"
 vagrant_user_home: "/home/{{vagrant_user}}"
 
 # directory for dotfile repos
-dotfiles: "{{ vagrant_user_home }}/.dotfiles"
+dotfiles_dir: "{{ vagrant_user_home }}/.dotfiles"
 
-# git repository for zsh dotfiles
+# zsh dotfiles
 zsh_git_url: "https://github.com/enil/enil-zsh-dotfiles.git"
+zsh_dotfiles_dir: "{{ dotfiles_dir }}/zsh"
+zsh_dotfiles: [.zsh, .zshrc]
 
-# git repository for vim dotfiles
+# vim dotfiles
 vim_git_url: "https://github.com/enil/enil-vim-dotfiles.git"
+vim_dotfiles_dir: "{{ dotfiles_dir }}/vim"
+vim_dotfiles: [.vim, .vimrc]
 
-# git repository for tmux dotfiles
+# tmux dotfiles
 tmux_git_url: "https://github.com/enil/enil-tmux-dotfiles.git"
+tmux_dotfiles_dir: "{{ dotfiles_dir }}/tmux"
+tmux_dotfiles: [.tmux.conf]
 
-# zsh dotfile directory
-zsh_dotfiles: "{{ dotfiles }}/zsh"
-
-# vim dotfile directory
-vim_dotfiles: "{{ dotfiles }}/vim"
-
-# tmux dotfile directory
-tmux_dotfiles: "{{ dotfiles }}/tmux"
-
-# username for git
+# placeholders for .gitconfig template
 git_username: "jsmith"
-
-# email for git
 git_email: "jsmith@example.com"
 
-# default value for LANG and LC_ALL
+# default values for LANG and LC_ALL
 locale: "en_US.UTF-8"
-
-# environment variable LANG
 LANG: "{{ locale }}"
-
-# environment variable LC_ALL
 LC_ALL: "{{ locale }}"
 
 # whether outdated repos should be updated
