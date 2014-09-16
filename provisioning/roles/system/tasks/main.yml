@@ -38,6 +38,13 @@
     - .vim
     - .vimrc
 
+# set up tmux
+- name: download tmux dotfiles
+  git: repo={{ tmux_git_url }}/ dest={{ tmux_dotfiles }} update={{ update_repos }}
+
+- name: Add tmux files to home directory
+  file: src={{ tmux_dotfiles }}/.tmux.conf dest={{ vagrant_user_home }}/.tmux.conf state=link force=yes
+
 # set up git
 - name: Set up gitconfig
   template: src=git/gitconfig dest={{ vagrant_user_home }}/.gitconfig mode=0600 backup=yes

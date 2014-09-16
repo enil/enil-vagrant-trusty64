@@ -27,6 +27,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # git repository for vim dotfiles
       #vim_git_url: "https://github.com/enil/enil-vim-dotfiles.git",
 
+      # git repository for tmux dotfiles
+      #tmux_git_url: "https://github.com/enil/enil-tmux-dotfiles.git",
+
       # additional packages to install
       extra_packages: %w[tmux vim build-essential gdb tree htop],
 
