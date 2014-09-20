@@ -1,8 +1,12 @@
 # provisioning/playbook.yml
 #
-# Defines the roles of the system.
+# Roles used by the system.
 ---
 - hosts: all
   roles:
     - system
+    - git
+    - zsh
+    - vim
+    - tmux
 

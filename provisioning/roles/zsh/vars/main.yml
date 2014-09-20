@@ -1,0 +1,14 @@
+# provisioning/roles/zsh/vars/main.yml
+#
+# Variables for zsh provisioning.
+
+---
+# URL for the zsh dotfiles repo
+zsh_git_url: "https://github.com/enil/enil-zsh-dotfiles.git"
+
+# target directory for the zsh dotfiles
+zsh_dotfiles_dir: "{{ dotfiles_dir }}/zsh"
+
+# zsh dotfiles to link
+zsh_dotfiles: [.zsh, .zshrc]
+

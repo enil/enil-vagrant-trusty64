@@ -1,37 +1,8 @@
-# provisioning/roles/system/tasks/system.yml
+# provisioning/roles/system/tasks/main.yml
 #
 # Basic system provisioning.
 
 ---
-- name: Install required packages
-  apt: name={{ item }}
-  with_items:
-    - git
-    - zsh
-    - vim
-  sudo: yes
-
-# set up zsh
-- name: Download zsh dotfiles
-  git: repo={{ zsh_git_url }} dest={{ zsh_dotfiles_dir }} update={{ update_repos }}
-  notify:
-    - Link zsh dotfiles
-    - Use zsh as shell
-
-# set up vim
-- name: Download vim dotfiles
-  git: repo={{ vim_git_url }} dest={{ vim_dotfiles_dir }} update={{ update_repos }}
-  notify: Link vim dotfiles
-
-# set up tmux
-- name: Download tmux dotfiles
-  git: repo={{ tmux_git_url }}/ dest={{ tmux_dotfiles_dir }} update={{ update_repos }}
-  notify: Link tmux dotfiles
-
-# set up git
-- name: Set up gitconfig
-  template: src=git/gitconfig dest={{ vagrant_user_home }}/.gitconfig mode=0600 backup=yes
-
 # additional packages
 - name: Install packages {{ extra_packages }}
   apt: name={{ item }}

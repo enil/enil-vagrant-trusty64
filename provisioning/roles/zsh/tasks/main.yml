@@ -1,0 +1,20 @@
+# provisioning/roles/zsh/tasks/main.yml
+#
+# Provisioning for zsh.
+
+---
+- name: Install zsh
+  apt: name=zsh
+  sudo: yes
+
+- name: Download zsh dotfiles
+  git: repo={{ zsh_git_url }} dest={{ zsh_dotfiles_dir }} update={{ update_repos }}
+
+- name: Link zsh dotfiles
+  file: src={{ zsh_dotfiles_dir }}/{{ item }} dest={{ vagrant_user_home }}/{{ item }} state=link force=yes
+  with_items: zsh_dotfiles
+
+- name: Use zsh as shell
+  user: name={{ vagrant_user }} shell=/bin/zsh
+  sudo: yes
+

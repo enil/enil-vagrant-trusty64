@@ -1,0 +1,19 @@
+# provisioning/roles/git/tasks/main.yml
+#
+# Provisioning for git.
+
+---
+- name: Install git
+  apt: name=git
+  sudo: yes
+
+- name: Download git dotfiles
+  git: repo={{ git_git_url }} dest={{ git_dotfiles_dir }} update={{ update_repos }}
+
+- name: Link git dotfiles
+  file: src={{ git_dotfiles_dir }}/{{ item }} dest={{ vagrant_user_home }}/{{ item }} state=link force=yes
+  with_items: git_dotfiles
+
+- name: Set up local gitconfig
+  template: src=gitconfig.local dest={{ vagrant_user_home }}/.gitconfig.local mode=0600 backup=yes
+

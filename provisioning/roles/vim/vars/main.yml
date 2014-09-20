@@ -1,0 +1,14 @@
+# provisioning/roles/vim/vars/main.yml
+#
+# Variables for vim provisioning.
+
+---
+# URL for the git dotfiles repo
+vim_git_url: "https://github.com/enil/enil-vim-dotfiles.git"
+
+# target directory for the git dotfiles
+vim_dotfiles_dir: "{{ dotfiles_dir }}/vim"
+
+# git dotfiles to link
+vim_dotfiles: [.vim, .vimrc]
+

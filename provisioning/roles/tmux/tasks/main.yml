@@ -1,0 +1,16 @@
+# provisioning/roles/tmux/tasks/main.yml
+#
+# Provisioning for tmux.
+
+---
+- name: Install tmux
+  apt: name=tmux
+  sudo: yes
+
+- name: Download tmux dotfiles
+  git: repo={{ tmux_git_url }}/ dest={{ tmux_dotfiles_dir }} update={{ update_repos }}
+
+- name: Link tmux dotfiles
+  file: src={{ tmux_dotfiles_dir }}/{{ item }} dest={{ vagrant_user_home }}/{{ item }} state=link force=yes
+  with_items: tmux_dotfiles
+

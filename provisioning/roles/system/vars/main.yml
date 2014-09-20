@@ -3,41 +3,10 @@
 # Variables for system provisioning.
 
 ---
-# the name of the vagrant user
-vagrant_user: "vagrant"
-
-# the home directory
-vagrant_user_home: "/home/{{vagrant_user}}"
-
-# directory for dotfile repos
-dotfiles_dir: "{{ vagrant_user_home }}/.dotfiles"
-
-# zsh dotfiles
-zsh_git_url: "https://github.com/enil/enil-zsh-dotfiles.git"
-zsh_dotfiles_dir: "{{ dotfiles_dir }}/zsh"
-zsh_dotfiles: [.zsh, .zshrc]
-
-# vim dotfiles
-vim_git_url: "https://github.com/enil/enil-vim-dotfiles.git"
-vim_dotfiles_dir: "{{ dotfiles_dir }}/vim"
-vim_dotfiles: [.vim, .vimrc]
-
-# tmux dotfiles
-tmux_git_url: "https://github.com/enil/enil-tmux-dotfiles.git"
-tmux_dotfiles_dir: "{{ dotfiles_dir }}/tmux"
-tmux_dotfiles: [.tmux.conf]
-
-# placeholders for .gitconfig template
-git_username: "jsmith"
-git_email: "jsmith@example.com"
-
 # default values for LANG and LC_ALL
 locale: "en_US.UTF-8"
 LANG: "{{ locale }}"
 LC_ALL: "{{ locale }}"
-
-# whether outdated repos should be updated
-update_repos: no
 
 # additional packages to install
 extra_packages: []

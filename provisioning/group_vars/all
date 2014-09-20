@@ -1,0 +1,19 @@
+# provisioning/group_vars/all
+#
+# Global provisioning variables.
+
+---
+# the name of the vagrant user
+vagrant_user: "vagrant"
+
+# the home directory
+vagrant_user_home: "/home/{{vagrant_user}}"
+
+# directory for dotfile repos
+dotfiles_dir: "{{ vagrant_user_home }}/.dotfiles"
+
+# whether outdated repos should be updated
+update_repos: no
+
+# vi: set ft=yaml :
+ 

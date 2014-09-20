@@ -1,0 +1,18 @@
+# provisioning/roles/git/vars/main.yml
+#
+# Variables for git provisioning.
+
+---
+# URL for the git dotfiles repo
+git_git_url: "https://github.com/enil/enil-git-dotfiles.git"
+
+# target directory for the git dotfiles
+git_dotfiles_dir: "{{ dotfiles_dir }}/git"
+
+# git dotfiles to link
+git_dotfiles: [.gitconfig, .gitignore_global]
+
+# placeholders for local gitconfig
+git_username: "jsmith"
+git_email: "jsmith@example.com"
+
