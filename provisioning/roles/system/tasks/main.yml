@@ -3,6 +3,18 @@
 # Basic system provisioning.
 
 ---
+- name: Remove cloud-init
+  apt: name=cloud-init state=absent purge=yes
+  sudo: yes
+
+- name: Set apt mirrors
+  template: src=misc/sources.list dest=/etc/apt/sources.list
+  sudo: yes
+
+- name: Update apt
+  apt: update_cache=yes
+  sudo: yes
+
 # additional packages
 - name: Install packages {{ extra_packages }}
   apt: name={{ item }}
